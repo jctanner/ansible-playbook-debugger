@@ -1,8 +1,0 @@
-#!/bin/bash
-
-export DEFAULT_ACTION_PLUGIN_PATH=$(pwd)/action_plugins
-export DEFAULT_CONNECTION_PLUGIN_PATH=$(pwd)/connection_plugins
-
-python monkey_patch.py
-
-ansible-playbook -vvvv --forks=1 -c mock $@
