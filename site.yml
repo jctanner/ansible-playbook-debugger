@@ -1,0 +1,36 @@
+- hosts: all
+  gather_facts: False
+  tasks:
+    - shell: echo "whoami"
+      with_items:
+        - "foo"
+        - "bar"
+
+    - shell: uname -a
+
+    - command: pwd
+
+    - ping:
+
+    - set_fact:
+        abar: foobar
+
+    - debug: var=abar
+
+    - shell: echo "{{ abar }}"
+
+    - include_role: 
+        name: role1
+
+    - include_role: 
+        name: role1
+      vars:
+        rolevar1: alvin
+
+    - include_role: 
+        name: role1
+      vars:
+        rolevar1: simon
+
+    - debug: msg="so what now?????"
+      tags: ['nocache']
